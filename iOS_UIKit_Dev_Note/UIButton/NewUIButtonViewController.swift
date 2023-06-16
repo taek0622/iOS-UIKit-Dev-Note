@@ -9,9 +9,13 @@ import UIKit
 
 class NewUIButtonViewController: UIViewController {
 
+    // MARK: - Property
+
+    private var buttonConfig = UIButton.Configuration.filled()
+
     // MARK: - View
 
-    private lazy var newButton = UIButton()
+    private lazy var newButton = UIButton(configuration: buttonConfig)
 
     // MARK: - Life Cycle
 
@@ -25,6 +29,7 @@ class NewUIButtonViewController: UIViewController {
 
     private func attribute() {
         view.backgroundColor = .white
+        setupButton()
     }
 
     private func layout() {
@@ -33,5 +38,19 @@ class NewUIButtonViewController: UIViewController {
             newButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             newButton.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor)
         ])
+    }
+
+    private func setupButton() {
+        buttonConfig.title = "일반"
+
+        buttonConfig.subtitle = "부제목"
+
+        buttonConfig.image = UIImage(systemName: "heart")
+        buttonConfig.imagePlacement = .bottom
+        buttonConfig.imagePadding = 10
+
+        buttonConfig.buttonSize = .medium
+
+        newButton.translatesAutoresizingMaskIntoConstraints = false
     }
 }
