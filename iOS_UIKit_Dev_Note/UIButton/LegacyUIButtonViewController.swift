@@ -53,7 +53,14 @@ class LegacyUIButtonViewController: UIViewController {
         legacyButton.backgroundColor = .systemBlue
         legacyButton.layer.cornerRadius = 4
 
+        legacyButton.addTarget(self, action: #selector(onClickButton), for: .touchUpInside)
 
         legacyButton.translatesAutoresizingMaskIntoConstraints = false
+    }
+
+    @objc func onClickButton() {
+        let alert = UIAlertController(title: "Alert", message: "Legacy Button Clicked", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .default))
+        present(alert, animated: true)
     }
 }
