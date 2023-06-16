@@ -12,10 +12,13 @@ class NewUIButtonViewController: UIViewController {
     // MARK: - Property
 
     private var buttonConfig = UIButton.Configuration.filled()
+    private lazy var buttonAction = UIAction { _ in
+        self.onClickButton()
+    }
 
     // MARK: - View
 
-    private lazy var newButton = UIButton(configuration: buttonConfig)
+    private lazy var newButton = UIButton(configuration: buttonConfig, primaryAction: buttonAction)
 
     // MARK: - Life Cycle
 
@@ -62,5 +65,11 @@ class NewUIButtonViewController: UIViewController {
                 btn.configuration = self.buttonConfig
             }
         }
+    }
+
+    private func onClickButton() {
+        let alert = UIAlertController(title: "Alert", message: "New Button Clicked", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .default))
+        present(alert, animated: true)
     }
 }
