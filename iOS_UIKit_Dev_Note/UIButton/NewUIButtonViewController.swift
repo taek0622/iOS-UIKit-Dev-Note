@@ -52,5 +52,15 @@ class NewUIButtonViewController: UIViewController {
         buttonConfig.buttonSize = .medium
 
         newButton.translatesAutoresizingMaskIntoConstraints = false
+
+        newButton.configurationUpdateHandler = { btn in
+            switch btn.state {
+            case .highlighted:
+                btn.configuration?.title = "클릭됨"
+                btn.configuration?.image = UIImage(systemName: "heart.fill")?.withTintColor(.red, renderingMode: .alwaysOriginal)
+            default:
+                btn.configuration = self.buttonConfig
+            }
+        }
     }
 }
