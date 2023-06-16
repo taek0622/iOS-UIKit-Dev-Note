@@ -25,6 +25,7 @@ class LegacyUIButtonViewController: UIViewController {
 
     private func attribute() {
         view.backgroundColor = .white
+        setupButton()
     }
 
     private func layout() {
@@ -35,5 +36,24 @@ class LegacyUIButtonViewController: UIViewController {
             legacyButton.widthAnchor.constraint(equalToConstant: 80),
             legacyButton.heightAnchor.constraint(equalToConstant: 30)
         ])
+    }
+
+    private func setupButton() {
+        legacyButton.setTitle("일반", for: .normal)
+        legacyButton.setTitle("클릭됨", for: .highlighted)
+
+        legacyButton.setTitleColor(.white, for: .normal)
+        legacyButton.setTitleColor(.black, for: .highlighted)
+
+        legacyButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        legacyButton.setImage(UIImage(systemName: "heart.fill"), for: .highlighted)
+
+        legacyButton.tintColor = .systemRed
+
+        legacyButton.backgroundColor = .systemBlue
+        legacyButton.layer.cornerRadius = 4
+
+
+        legacyButton.translatesAutoresizingMaskIntoConstraints = false
     }
 }
