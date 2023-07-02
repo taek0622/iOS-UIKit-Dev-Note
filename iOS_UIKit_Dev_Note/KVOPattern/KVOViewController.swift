@@ -131,3 +131,11 @@ class KVOViewController: UIViewController {
         submitButton.translatesAutoresizingMaskIntoConstraints = false
     }
 }
+
+class UserInfo: NSObject {
+    @objc dynamic var nickname = "홍길동"
+
+    func updateNickname(newNickname: String) {
+        nickname = newNickname
+    }
+}
