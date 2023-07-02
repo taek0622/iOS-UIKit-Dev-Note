@@ -51,7 +51,7 @@ class ListViewController: UICollectionViewController {
         var snapshot = NSDiffableDataSourceSnapshot<Section, String>()
 
         snapshot.appendSections(Section.allCases)
-        snapshot.appendItems(["Old", "New"], toSection: .menuList)
+        snapshot.appendItems(["Old Button", "New Button", "KVO Pattern"], toSection: .menuList)
 
         dataSource.apply(snapshot)
         
@@ -59,11 +59,19 @@ class ListViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let item = dataSource.itemIdentifier(for: indexPath) {
-            if indexPath == [0, 0] {
+            switch indexPath {
+            case [0, 0]:
                 navigationController?.pushViewController(LegacyUIButtonViewController(), animated: true)
-            } else {
+            case [0, 1]:
                 navigationController?.pushViewController(NewUIButtonViewController(), animated: true)
+            case [0, 2]:
+                let observed = UserInfo()
+                let observer = KVOViewController(object: observed)
+                navigationController?.pushViewController(observer, animated: true)
+            default:
+                break
             }
+
             collectionView.deselectItem(at: indexPath, animated: true)
         }
     }
