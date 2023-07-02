@@ -11,8 +11,11 @@ class KVOViewController: UIViewController {
 
     // MARK: - Property
 
+    @objc var userInfo: UserInfo
+    var observation: NSKeyValueObservation?
     private var buttonConfig = UIButton.Configuration.filled()
     private lazy var buttonAction = UIAction { _ in
+        self.userInfo.updateNickname(newNickname: self.changingNickname.text ?? "")
     }
 
     // MARK: - View
@@ -57,6 +60,26 @@ class KVOViewController: UIViewController {
 
     // MAKR: - Life Cycle
 
+    init(object: UserInfo) {
+        userInfo = object
+        super.init(nibName: nil, bundle: nil)
+
+        observation = observe(\.userInfo.nickname, options: [.old, .new], changeHandler: { object, change in
+            let alertTitle = "닉네임 변경 " + (change.oldValue != change.newValue ? "완료" : "실패")
+            let alertMessage = (change.oldValue != change.newValue ? "닉네임이 \(change.oldValue!)에서 \(change.newValue!)(으)로 변경되었습니다." : "변경할 닉네임이 현재 닉네임과 같습니다.")
+            self.currentNickname.text = change.newValue!
+//            print(change)
+
+            let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "확인", style: .default))
+            self.present(alert, animated: true)
+        })
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         attribute()
@@ -67,6 +90,7 @@ class KVOViewController: UIViewController {
 
     private func attribute() {
         view.backgroundColor = .white
+        currentNickname.text = userInfo.nickname
         setupButton()
     }
 
