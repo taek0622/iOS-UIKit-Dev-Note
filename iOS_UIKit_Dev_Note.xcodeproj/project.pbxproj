@@ -14,6 +14,7 @@
 		263205652A336A8400CDFB33 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263205642A336A8400CDFB33 /* ListViewController.swift */; };
 		263205672A33757800CDFB33 /* LegacyUIButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263205662A33757800CDFB33 /* LegacyUIButtonViewController.swift */; };
 		263205692A33758200CDFB33 /* NewUIButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263205682A33758200CDFB33 /* NewUIButtonViewController.swift */; };
+		2683D7662A50C27F0010C32D /* KVOViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683D7652A50C27F0010C32D /* KVOViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		263205642A336A8400CDFB33 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		263205662A33757800CDFB33 /* LegacyUIButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyUIButtonViewController.swift; sourceTree = "<group>"; };
 		263205682A33758200CDFB33 /* NewUIButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUIButtonViewController.swift; sourceTree = "<group>"; };
+		2683D7652A50C27F0010C32D /* KVOViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KVOViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				261032B529E2F9DB001A942B /* AppDelegate.swift */,
 				261032B729E2F9DB001A942B /* SceneDelegate.swift */,
 				263205642A336A8400CDFB33 /* ListViewController.swift */,
+				2683D7672A50C29C0010C32D /* KVOPattern */,
 				2614EA532A345C4D003C2FFD /* UIButton */,
 				261032BE29E2F9DC001A942B /* Assets.xcassets */,
 				261032C029E2F9DC001A942B /* LaunchScreen.storyboard */,
@@ -77,6 +80,14 @@
 				263205682A33758200CDFB33 /* NewUIButtonViewController.swift */,
 			);
 			path = UIButton;
+			sourceTree = "<group>";
+		};
+		2683D7672A50C29C0010C32D /* KVOPattern */ = {
+			isa = PBXGroup;
+			children = (
+				2683D7652A50C27F0010C32D /* KVOViewController.swift */,
+			);
+			path = KVOPattern;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				263205692A33758200CDFB33 /* NewUIButtonViewController.swift in Sources */,
+				2683D7662A50C27F0010C32D /* KVOViewController.swift in Sources */,
 				263205652A336A8400CDFB33 /* ListViewController.swift in Sources */,
 				261032B629E2F9DB001A942B /* AppDelegate.swift in Sources */,
 				263205672A33757800CDFB33 /* LegacyUIButtonViewController.swift in Sources */,
